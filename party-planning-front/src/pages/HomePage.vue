@@ -1,5 +1,7 @@
 <template>
-  <span>{{test}}</span>
+  <div>
+    l <span>{{test}}</span>
+  </div>
 </template>
 
 <script>

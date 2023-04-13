@@ -1,7 +1,8 @@
 <template>
   <div id="app">
-    <button @click="currentPage = 'HomePage'">Accueil</button>
+    <button v-if="currentPage != 'HomePage'" @click="currentPage = 'HomePage'">Accueil</button>
     <home-page v-if="currentPage === 'HomePage'" />
+    <!-- <div>l</div> -->
   </div>
 </template>
 
