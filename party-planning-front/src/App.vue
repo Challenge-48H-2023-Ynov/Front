@@ -1,5 +1,7 @@
 <template>
   <div id="app">
+    <button v-if="currentPage !== 'ListSoireePage'" @click="currentPage = 'ListSoireePage'">Liste des soirées</button>
+    <list-soiree-page v-if="currentPage === 'ListSoireePage'" />
     <div id="nav">
       <button v-if="currentPage != 'Register'" @click="currentPage = 'Register'">Start</button>
     <Register v-if="currentPage === 'Register'" />
@@ -12,6 +14,7 @@
 </template>
 <!-- <script type="module" src="../router/index.js"></script> -->
 <script>
+import ListSoireePage from "@/pages/ListSoireePage";
 // import HomePage from "@/pages/HomePage";
 // import Login from "./pages/Login.vue";
 import Register from "./pages/Register.vue";
@@ -19,16 +22,19 @@ import Register from "./pages/Register.vue";
 export default {
   name: 'App',
   components: {
+    ListSoireePage,
     // HomePage,
     // Login,
     Register,
-},
-  data() {
+  },
+    data() {
     return {
-      currentPage: '',
+      currentPage: 'ListSoireePage',
     }
   },
 }
+  
+
 </script>
 
 <style>
