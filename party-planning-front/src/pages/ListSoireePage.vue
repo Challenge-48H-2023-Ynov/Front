@@ -10,7 +10,7 @@
                 v-for="(soiree, index) in listSoiree"
                 :key="index"
             >
-              <button @click="goToSoiree(soiree.id)">
+              <button @click="goToSoiree(soiree.idParty)">
                 {{soiree.name}} - {{ soiree.date}} - {{ soiree.adresse}}
               </button>
             </li>
@@ -30,7 +30,7 @@
     </div>
     <!-- <button type = "button" id = "get-joke" @click = "fetchAPIData">Get a Joke!!</button> -->
     <create-soiree-page v-if="currentPage === 'CreateSoireePage'"/>
-    <event-page v-if="currentPage === 'EventPage'" />
+    <event-page v-if="currentPage === 'EventPage'"  :event-id="currentSoireeId" />
     <component :is="currentView" />
   </div>
 </template>
@@ -42,7 +42,6 @@ import EventPage from "@/pages/EventPage";
 
 const routes = {
   '/createSoiree': CreateSoireePage,
-  '/event/': EventPage,
 }
 export default {
   name: "ListSoireePage",
@@ -51,7 +50,7 @@ export default {
     return {
       currentPath: window.location.hash,
       currentPage: 'ListSoireePage',
-      currentSoireeId: Number,
+      currentSoireeId: null,
       listSoiree: [],
       createSoireeButton: false,
     }
@@ -67,25 +66,25 @@ export default {
     })
     const token = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJVc2VyIjoiRGVyY3Jha2VyIiwiRW1haWwiOiJhbnRvaW5lLmNhcGl0YWluQGdtYWlsLmNvbSIsImp0aSI6ImVjY2MzNzczLWJhYmMtNGNmMy04MGY0LTZmMmYxZDRjMWQ0NyIsIlJvbGVzIjoiQWRtaW4iLCJuYmYiOjE2ODE0NjIxNjIsImV4cCI6MTY4MTU0ODU2MiwiaWF0IjoxNjgxNDYyMTYyfQ.jLJ4yfkKNQ8bxIHrfzeDb_IL6WY1gGJplXxQ-BHfQls';
     fetch('https://api-challenge-48h.game-trip.fr/Party', {
-        method: 'GET',
-        headers: {
-          'Authorization': `Bearer ${token}`
-        }
-      })
-      .then(response => {
-        return response.json();
-      })
-      .then(data => {
-        this.listSoiree = data;
-      })
-      .catch(error => {
-        console.log(error);
-      });
+      method: 'GET',
+      headers: {
+        'Authorization': `Bearer ${token}`
+      }
+    })
+        .then(response => {
+          return response.json();
+        })
+        .then(data => {
+          this.listSoiree = data;
+        })
+        .catch(error => {
+          console.log(error);
+        });
   },
   methods: {
     goToSoiree (soireeId) {
       this.currentPage = 'EventPage'
-      this.currentSoireeId = soireeId
+      this.currentSoireeId = soireeId;
     },
   }
 
