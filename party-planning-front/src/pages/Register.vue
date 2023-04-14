@@ -3,22 +3,22 @@
         <div id="nav">
         </div>
         <div id="form">
-            <form method="get" action="" id="loginForm">
+            <form method="get" action="" id="registerForm">
                 <h1><u>REGISTER : </u></h1><br>
                 <h2>First Name : </h2>
-                <input id="Username" class="form-control" placeholder="Enter your first name"><br>
+                <input id="First-Name" class="form-control" placeholder="Enter your first name"><br>
 				<h2>Last Name : </h2>
-                <input id="Username" class="form-control" placeholder="Enter your last name"><br>
+                <input id="Last-Name" class="form-control" placeholder="Enter your last name"><br>
 				<h2>Username : </h2>
                 <input id="Username" class="form-control" placeholder="Enter your username"><br>
 				<h2>Email : </h2>
-                <input id="Username" class="form-control" placeholder="Enter your username"><br>
+                <input id="Email" class="form-control" placeholder="Enter your email" type="email"><br>
 				<h2>PhoneNumber : </h2>
-                <input id="Username" class="form-control" placeholder="Enter your username"><br>
+                <input id="Phone-Number" class="form-control" placeholder="Enter your phone number"><br>
                 <h2>Password : </h2>
                 <input id="Password" class="form-control" placeholder="Enter your password" type="password"><br>
 				<h2>Password retype : </h2>
-                <input id="Password" class="form-control" placeholder="Enter your password" type="password"><br>
+                <input id="RePassword" class="form-control" placeholder="Retype your password" type="password"><br>
                 <button type="submit" class="button login__submit">
 					<span class="button__text">Submit</span>
 					<i class="button__icon fas fa-chevron-right"></i>

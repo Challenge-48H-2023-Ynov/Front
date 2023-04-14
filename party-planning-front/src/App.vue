@@ -1,8 +1,8 @@
 <template>
   <div id="app">
     <div id="nav">
-      <button v-if="currentPage != 'Login'" @click="currentPage = 'Login'">Start</button>
-    <Login v-if="currentPage === 'Login'" />
+      <button v-if="currentPage != 'Register'" @click="currentPage = 'Register'">Start</button>
+    <Register v-if="currentPage === 'Register'" />
     <router-link to="/brazil">Brazil</router-link>
     <router-view></router-view>
   </div>
@@ -13,13 +13,15 @@
 <!-- <script type="module" src="../router/index.js"></script> -->
 <script>
 // import HomePage from "@/pages/HomePage";
-import Login from "./pages/Login.vue";
+// import Login from "./pages/Login.vue";
+import Register from "./pages/Register.vue";
 
 export default {
   name: 'App',
   components: {
     // HomePage,
-    Login,
+    // Login,
+    Register,
 },
   data() {
     return {
