@@ -14,7 +14,7 @@
                 :key="index"
             >
               <button
-                  @click="goToSoiree(soiree.id)"
+                  @click="goToSoiree(soiree.idParty)"
                   style="background-color: #101010; color: white"
               >
                 {{soiree.name}} - {{ soiree.dateStart}} - {{ soiree.adresse}}
@@ -35,8 +35,8 @@
       </button>
     </div>
     <create-soiree-page v-if="currentPage === 'CreateSoireePage'"/>
-    <event-page v-if="currentPage === 'EventPage'" />
     <profil-page v-if="currentPage === 'ProfilPage'"></profil-page>
+    <event-page v-if="currentPage === 'EventPage'"  :event-id="currentSoireeId" />
     <component :is="currentView" />
   </div>
 </template>
@@ -48,7 +48,6 @@ import ProfilPage from "@/pages/ProfilPage";
 
 const routes = {
   '/createSoiree': CreateSoireePage,
-  '/event/': EventPage,
 }
 export default {
   name: "ListSoireePage",
