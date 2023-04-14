@@ -4,10 +4,10 @@
       <img class="profile-picture" alt="Profile Picture">
     </div>
     <div class="title">
-      <h1>{{event.Title}}</h1>
+      <h1>{{event.name}}</h1>
     </div>
     <div class="user">
-      <h3>Evénement préparer par : <span class="highlight">{{event.Name}}</span></h3>
+      <h3>Evénement préparer par : <span class="highlight">{{event.maker}}</span></h3>
     </div>
     <div class="info">
       <div class="date">
@@ -34,18 +34,19 @@
 <script>
 export default {
   name: "EventPage",
+  props: {
+    eventId: {
+      type: String,
+      required: true
+    }
+  },
   data() {
     return {
       isChecked: false,
       isEditModeEnabled: false,
       showCheckbox: true,
       event: {
-        id: 1,
-        Title: "JOJO",
-        Name: "JOEL",
-        DateDateTime: "25/05/23",
-        Description: "BLALALALALLAA",
-        Adress: "27 rue raoul servant 69007 Lyon",
+
       },
       aport: {
         id: 1,
@@ -54,6 +55,24 @@ export default {
         Quantité: "3",
       },
     }
+  },
+  mounted() {
+    const token = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJVc2VyIjoiRGVyY3Jha2VyIiwiRW1haWwiOiJhbnRvaW5lLmNhcGl0YWluQGdtYWlsLmNvbSIsImp0aSI6ImVjY2MzNzczLWJhYmMtNGNmMy04MGY0LTZmMmYxZDRjMWQ0NyIsIlJvbGVzIjoiQWRtaW4iLCJuYmYiOjE2ODE0NjIxNjIsImV4cCI6MTY4MTU0ODU2MiwiaWF0IjoxNjgxNDYyMTYyfQ.jLJ4yfkKNQ8bxIHrfzeDb_IL6WY1gGJplXxQ-BHfQls';
+
+    fetch('https://api-challenge-48h.game-trip.fr/Party/'+ this.eventId, {
+      headers: {
+        'Authorization': `Bearer ${token}`
+      }
+    })
+        .then(response => {
+          return response.json();
+        })
+        .then(data => {
+          this.event = data;
+        })
+        .catch(error => {
+          console.log(error);
+        });
   },
   methods: {
     enableEditMode() {

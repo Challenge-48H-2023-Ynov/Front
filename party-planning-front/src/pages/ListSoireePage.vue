@@ -9,7 +9,7 @@
                 v-for="(soiree, index) in listSoiree"
                 :key="index"
             >
-              <button @click="currentPage = 'EventPage'">
+              <button @click="goToSoiree(soiree.id)"> @click="currentPage = 'EventPage'">
                 {{soiree.name}} - {{ soiree.date}} - {{ soiree.adresse}}
               </button>
             </li>
@@ -28,7 +28,7 @@
       </button>
     </div>
     <create-soiree-page v-if="currentPage === 'CreateSoireePage'"/>
-    <event-page v-if="currentPage === 'EventPage'" />
+    <event-page v-if="currentPage === 'EventPage'"  event-id="currentSoireeId" />
     <component :is="currentView" />
   </div>
 </template>
@@ -48,6 +48,7 @@ export default {
     return {
       currentPath: window.location.hash,
       currentPage: 'ListSoireePage',
+      currentSoireeId: Number,
       listSoiree: [
         { id: 1, name: 'BQQ', date: '05/05/2023', adresse: '5 rue du Test' },
         { id: 2, name: 'Bar', date: '06/06/2023', adresse: '6 rue du Test' }
@@ -68,8 +69,8 @@ export default {
   methods: {
     goToSoiree (soireeId) {
       this.currentPage = 'EventPage'
-      console.log(soireeId)
-      //alert('id de la soiree :' + soireeId)
+      this.currentSoireeId = soireeId
+      console.log(this.currentSoireeId)
     },
   }
 
@@ -77,32 +78,43 @@ export default {
 </script>
 
 <style scoped>
-.body{
-  background-color: #101010;
+.body {
+  background-color: black;
+
 }
+
+div[v-if="currentPage !== 'EventPage'"] {
+  background-color: black;
+  margin-top: 0px;
+  padding: 10px;
+  border-radius: 5px;
+}
+
 h2 {
+  text-align: center;
+  margin-top: 50px;
   color: white;
-  padding: 1rem;
+  font-size: 24px;
+  margin-bottom: 10px;
 }
+
 ul {
   list-style: none;
-  padding: 0;
+  padding: 100px;
+  margin: auto;
 }
-button {
-  font-size: 1rem;
-  padding: 0.5rem 1rem;
-  margin: 1rem;
+
+li {
+  margin-bottom: 10px;
+}
+
+.button {
   background-color: white;
   color: black;
   border: none;
-  border-radius: 3px;
+  padding: 10px;
+  border-radius: 5px;
   cursor: pointer;
 }
-.bottom-button {
-  margin-top: 15em;
-}
-.bottom-button a {
-  text-decoration: none;
-  color: black;
-}
+
 </style>
