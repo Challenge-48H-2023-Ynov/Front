@@ -1,7 +1,7 @@
 <template>
   <div class="body">
     <div class="profile-picture-container">
-      <img class="profile-picture" src="/path/to/profile-picture.jpg" alt="Profile Picture">
+      <img class="profile-picture" alt="Profile Picture">
     </div>
     <div class="title">
       <h1>{{event.Title}}</h1>

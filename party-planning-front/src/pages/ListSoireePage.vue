@@ -1,44 +1,49 @@
 <template>
   <div class="body">
-    <div v-if="!createSoireeButton">
-      <h2>Soirées disponibles</h2>
-      <div v-if="listSoiree.length">
-        <ul>
-          <li
-              v-for="(soiree, index) in listSoiree"
-              :key="index"
-          >
-            <button @click="goToSoiree(soiree.id)">
-              {{soiree.name}} - {{ soiree.date}} - {{ soiree.adresse}}
-            </button>
-          </li>
-        </ul>
+    <div v-if="currentPage !== 'EventPage'">
+      <div v-if="!createSoireeButton">
+        <h2>Soirées disponibles</h2>
+        <div v-if="listSoiree.length">
+          <ul>
+            <li
+                v-for="(soiree, index) in listSoiree"
+                :key="index"
+            >
+              <button @click="currentPage = 'EventPage'">
+                {{soiree.name}} - {{ soiree.date}} - {{ soiree.adresse}}
+              </button>
+            </li>
+          </ul>
+        </div>
+        <div v-else>
+          <span>Aucune soirée disponible</span>
+        </div>
       </div>
-      <div v-else>
-        <span>Aucune soirée disponible</span>
-      </div>
+      <button
+          v-if="!createSoireeButton"
+          @click="currentPage = 'CreateSoireePage'"
+          class="bottom-button"
+      >
+        <a>Créer une soirée</a>
+      </button>
     </div>
-    <button
-        v-if="!createSoireeButton"
-        @click="currentPage = 'CreateSoireePage'"
-        class="bottom-button"
-    >
-      <a>Créer une soirée</a>
-    </button>
     <create-soiree-page v-if="currentPage === 'CreateSoireePage'"/>
+    <event-page v-if="currentPage === 'EventPage'" />
     <component :is="currentView" />
   </div>
 </template>
 
 <script>
 import CreateSoireePage from "@/pages/CreateSoireePage";
+import EventPage from "@/pages/EventPage";
 
 const routes = {
   '/createSoiree': CreateSoireePage,
+  '/event/': EventPage,
 }
 export default {
   name: "ListSoireePage",
-  components: { CreateSoireePage  },
+  components: { CreateSoireePage, EventPage  },
   data() {
     return {
       currentPath: window.location.hash,
@@ -62,7 +67,9 @@ export default {
   },
   methods: {
     goToSoiree (soireeId) {
-      alert('id de la soiree :' + soireeId)
+      this.currentPage = 'EventPage'
+      console.log(soireeId)
+      //alert('id de la soiree :' + soireeId)
     },
   }
 
