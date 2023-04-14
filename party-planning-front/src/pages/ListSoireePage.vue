@@ -28,7 +28,7 @@
       </button>
     </div>
     <create-soiree-page v-if="currentPage === 'CreateSoireePage'"/>
-    <event-page v-if="currentPage === 'EventPage'"  event-id="currentSoireeId" />
+    <event-page v-if="currentPage === 'EventPage'"  event-id="ma valeur" />
     <component :is="currentView" />
   </div>
 </template>
@@ -48,9 +48,9 @@ export default {
     return {
       currentPath: window.location.hash,
       currentPage: 'ListSoireePage',
-      currentSoireeId: Number,
+      currentSoireeId: String,
       listSoiree: [
-        { id: 1, name: 'BQQ', date: '05/05/2023', adresse: '5 rue du Test' },
+        { id: 73, name: 'BQQ', date: '05/05/2023', adresse: '5 rue du Test' },
         { id: 2, name: 'Bar', date: '06/06/2023', adresse: '6 rue du Test' }
       ],
       createSoireeButton: false,
@@ -70,7 +70,6 @@ export default {
     goToSoiree (soireeId) {
       this.currentPage = 'EventPage'
       this.currentSoireeId = soireeId
-      console.log(this.currentSoireeId)
     },
   }
 
