@@ -37,46 +37,8 @@ export default {
 </script>
 
 <style>
-@import url('https://fonts.googleapis.com/css?family=Raleway:400,700');
-
-* {
-	box-sizing: border-box;
-	margin: 0;
-	padding: 0;	
-	/* font-family: Raleway, sans-serif; */
-}
-
-body {
-	display: flex;
-	justify-content: center;
-	align-items: center;
-	background: white;
-}
-#form {		
-	position: relative;
-	height: 600px;
-	width: 360px;	
-}
-.form-control{
-	/* height: 60px; */
-	border: none;
-	border-bottom: 2px solid #D1D1D4;
-	background: none;
-  padding: 10px 10px 10px 24px;
-  font-weight: 700;
-	width: 75%;
-	transition: .2s;
-}
-
-.form-control:active,
-.form-control:focus,
-.form-control:hover {
-	outline: none;
-}
-
 #form {
-  text-align: center;
-  color: white;
+  margin: auto;
 }
 h1{
 	height: 100px;
@@ -87,6 +49,7 @@ h2{
 	height: 20px;
 	font-weight: bold;
 	text-underline-position: under;
+  margin: 1rem;
 }
 input{
   color: white;
@@ -109,8 +72,5 @@ button{
 	width: 100%;
 	color: #101010;
 	cursor: pointer;
-	transition: .2s;
-	
 }
-
 </style>
