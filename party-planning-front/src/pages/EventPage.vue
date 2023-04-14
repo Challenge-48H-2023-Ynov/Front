@@ -46,7 +46,6 @@ export default {
       isEditModeEnabled: false,
       showCheckbox: true,
       event: {
-
       },
       aport: {
         id: 1,

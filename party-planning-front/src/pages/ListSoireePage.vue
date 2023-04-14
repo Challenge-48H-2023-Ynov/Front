@@ -9,7 +9,7 @@
                 v-for="(soiree, index) in listSoiree"
                 :key="index"
             >
-              <button @click="goToSoiree(soiree.id)"> @click="currentPage = 'EventPage'">
+              <button @click="goToSoiree(soiree.id)">
                 {{soiree.name}} - {{ soiree.date}} - {{ soiree.adresse}}
               </button>
             </li>
@@ -28,7 +28,7 @@
       </button>
     </div>
     <create-soiree-page v-if="currentPage === 'CreateSoireePage'"/>
-    <event-page v-if="currentPage === 'EventPage'"  event-id="ma valeur" />
+    <event-page v-if="currentPage === 'EventPage'"  :event-id="currentSoireeId" />
     <component :is="currentView" />
   </div>
 </template>
@@ -39,7 +39,6 @@ import EventPage from "@/pages/EventPage";
 
 const routes = {
   '/createSoiree': CreateSoireePage,
-  '/event/': EventPage,
 }
 export default {
   name: "ListSoireePage",
@@ -48,11 +47,8 @@ export default {
     return {
       currentPath: window.location.hash,
       currentPage: 'ListSoireePage',
-      currentSoireeId: String,
-      listSoiree: [
-        { id: 73, name: 'BQQ', date: '05/05/2023', adresse: '5 rue du Test' },
-        { id: 2, name: 'Bar', date: '06/06/2023', adresse: '6 rue du Test' }
-      ],
+      currentSoireeId: null,
+      listSoiree: [],
       createSoireeButton: false,
     }
   },
@@ -65,11 +61,28 @@ export default {
     window.addEventListener('hashchange', () => {
       this.currentPath = window.location.hash
     })
+    const token = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJVc2VyIjoiRGVyY3Jha2VyIiwiRW1haWwiOiJhbnRvaW5lLmNhcGl0YWluQGdtYWlsLmNvbSIsImp0aSI6ImVjY2MzNzczLWJhYmMtNGNmMy04MGY0LTZmMmYxZDRjMWQ0NyIsIlJvbGVzIjoiQWRtaW4iLCJuYmYiOjE2ODE0NjIxNjIsImV4cCI6MTY4MTU0ODU2MiwiaWF0IjoxNjgxNDYyMTYyfQ.jLJ4yfkKNQ8bxIHrfzeDb_IL6WY1gGJplXxQ-BHfQls';
+    fetch('https://api-challenge-48h.game-trip.fr/Party', {
+      method: 'GET',
+      headers: {
+        'Authorization': `Bearer ${token}`
+      }
+    })
+        .then(response => {
+          return response.json();
+        })
+        .then(data => {
+          this.listSoiree = data;
+        })
+        .catch(error => {
+          console.log(error);
+        });
   },
   methods: {
     goToSoiree (soireeId) {
       this.currentPage = 'EventPage'
-      this.currentSoireeId = soireeId
+      this.currentSoireeId = soireeId;
+      console.log(this.currentSoireeId)
     },
   }
 
@@ -77,43 +90,32 @@ export default {
 </script>
 
 <style scoped>
-.body {
-  background-color: black;
-
+.body{
+  background-color: #101010;
 }
-
-div[v-if="currentPage !== 'EventPage'"] {
-  background-color: black;
-  margin-top: 0px;
-  padding: 10px;
-  border-radius: 5px;
-}
-
 h2 {
-  text-align: center;
-  margin-top: 50px;
   color: white;
-  font-size: 24px;
-  margin-bottom: 10px;
+  padding: 1rem;
 }
-
 ul {
   list-style: none;
-  padding: 100px;
-  margin: auto;
+  padding: 0;
 }
-
-li {
-  margin-bottom: 10px;
-}
-
-.button {
+button {
+  font-size: 1rem;
+  padding: 0.5rem 1rem;
+  margin: 1rem;
   background-color: white;
   color: black;
   border: none;
-  padding: 10px;
-  border-radius: 5px;
+  border-radius: 3px;
   cursor: pointer;
 }
-
+.bottom-button {
+  margin-top: 15em;
+}
+.bottom-button a {
+  text-decoration: none;
+  color: black;
+}
 </style>
