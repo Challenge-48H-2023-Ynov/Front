@@ -1,5 +1,6 @@
 <template>
   <div class="body">
+    <h1>PartyPlanning</h1><br>
     <div v-if="currentPage !== 'EventPage'">
       <div v-if="!createSoireeButton">
         <h2>Soirées disponibles</h2>
@@ -37,43 +38,15 @@
 <script>
 import CreateSoireePage from "@/pages/CreateSoireePage";
 import EventPage from "@/pages/EventPage";
-import Vue from 'vue'
+// import Vue from 'vue'
 
 const routes = {
   '/createSoiree': CreateSoireePage,
   '/event/': EventPage,
 }
 export default {
-  app : new Vue({
-    methods: {
-    fetchAPIData( ) { 
-      this.responseAvailable = false;
-fetch("https://jokes-database.p.rapidapi.com/", {
-    "method": "GET",
-    "headers": {
-        "x-rapidapi-host": "jokes-database.p.rapidapi.com",
-        "x-rapidapi-key": this.apiKey
-    }
-})
-.then(response => { 
-    if(response.ok){
-        return response.json()    
-    } else{
-        alert("Server returned " + response.status + " : " + response.statusText);
-    }                
-})
-.then(response => {
-    this.result = response.body; 
-    this.responseAvailable = true;
-})
-.catch(err => {
-    console.log(err);
-});
-        }
-  }
-  }),
   name: "ListSoireePage",
-  components: { CreateSoireePage, EventPage  },
+  components: { CreateSoireePage, EventPage },
   data() {
     return {
       currentPath: window.location.hash,

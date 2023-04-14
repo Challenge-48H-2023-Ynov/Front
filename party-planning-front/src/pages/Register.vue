@@ -1,5 +1,6 @@
 <template>
     <div>
+		<h1>PartyPlannig</h1><br>
         <div id="nav">
         </div>
         <div id="form">
@@ -91,6 +92,7 @@ h1{
 	height: 50px;
 	font-weight: bold;
 	text-underline-position: under;
+	color: white;
 }
 h2{
 	height: 20px;

@@ -46,7 +46,7 @@ export default {
 }
 
 body {
-	display: flex;
+	/* display: flex; */
 	justify-content: center;
 	background-color: black;		
 }
