@@ -1,21 +1,21 @@
 <template>
   <div id="app">
-    <button @click="currentPage = 'HomePage'">Accueil</button>
-    <home-page v-if="currentPage === 'HomePage'" />
+    <button v-if="currentPage !== 'ListSoireePage'" @click="currentPage = 'ListSoireePage'">Liste des soirées</button>
+    <list-soiree-page v-if="currentPage === 'ListSoireePage'" />
   </div>
 </template>
 
 <script>
-import HomePage from "@/pages/HomePage";
+import ListSoireePage from "@/pages/ListSoireePage";
 
 export default {
   name: 'App',
   components: {
-    HomePage
+    ListSoireePage,
   },
   data() {
     return {
-      currentPage: '',
+      currentPage: 'ListSoireePage',
     }
   },
 
@@ -30,6 +30,6 @@ export default {
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
-  margin-top: 60px;
+  background-color: #101010;
 }
 </style>
