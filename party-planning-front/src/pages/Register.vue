@@ -55,13 +55,13 @@ body {
 #form {		
 	background: linear-gradient(90deg, #5D54A4, #7C78B8);		
 	position: relative;	
-	height: 600px;
+	height: 850px;
 	width: 360px;	
 	box-shadow: 0px 0px 24px #5C5696;
 }
 form {
 	background: linear-gradient(90deg, white, #C7C5F4, #776BCC);	
-	height: 600px;	
+	height: 850px;	
 	width: 360px;
 	padding: 30px;
 	padding-top: 156px;

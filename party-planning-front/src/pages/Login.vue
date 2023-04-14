@@ -3,13 +3,14 @@
         <div id="nav">
         </div>
         <div id="form">
-            <form method="get" action="" id="loginForm">
+            <form method="get" action="./Register.vue" id="loginForm">
                 <h1><u>LOGIN : </u></h1><br>
                 <h2>Username / Email : </h2>
                 <input id="Username" class="form-control" placeholder="Enter your username"><br>
                 <h2>Password : </h2>
                 <input id="Password" class="form-control" placeholder="Enter your password" type="password"><br>
-                <button type="submit" class="button login__submit">
+                <button type="submit" class="button login__submit" @click="currentPage = 'ListSoireePage'">
+					<list-soiree-page v-if="currentPage === 'ListSoireePage'" />
 					<span class="button__text">Submit</span>
 					<i class="button__icon fas fa-chevron-right"></i>
 				</button>		
@@ -20,9 +21,16 @@
 
 
 <script>
+import {ListSoireePage} from './ListSoireePage.vue'
 export default {
     name: "LoginPage",
-    
+  components: {
+    ListSoireePage,
+  },
+    data() {
+    return {
+    }
+  },
 }
 </script>
 
