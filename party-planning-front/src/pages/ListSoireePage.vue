@@ -9,7 +9,7 @@
                 v-for="(soiree, index) in listSoiree"
                 :key="index"
             >
-              <button @click="goToSoiree(soiree.id)">
+              <button @click="goToSoiree(soiree.idParty)">
                 {{soiree.name}} - {{ soiree.date}} - {{ soiree.adresse}}
               </button>
             </li>
@@ -82,7 +82,6 @@ export default {
     goToSoiree (soireeId) {
       this.currentPage = 'EventPage'
       this.currentSoireeId = soireeId;
-      console.log(this.currentSoireeId)
     },
   }
 
