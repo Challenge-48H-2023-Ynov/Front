@@ -3,7 +3,7 @@
     <button v-if="currentPage !== 'ListSoireePage'" @click="currentPage = 'ListSoireePage'">Liste des soirées</button>
     <list-soiree-page v-if="currentPage === 'ListSoireePage'" />
     <div id="nav">
-      <button v-if="currentPage != 'Register'" @click="currentPage = 'Register'">Start</button>
+      <!-- <button v-if="currentPage != 'Register'" @click="currentPage = 'Register'">Start</button> -->
     <Register v-if="currentPage === 'Register'" />
     <router-link to="/brazil">Brazil</router-link>
     <router-view></router-view>
