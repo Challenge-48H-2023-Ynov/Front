@@ -1,28 +1,38 @@
 <template>
     <div>
-        <div id="nav">
-        </div>
-        <div id="form">
+        <div id="form" v-if="currentPage === 'LoginPage'">
             <form method="get" action="" id="loginForm">
                 <h1><u>LOGIN : </u></h1><br>
                 <h2>Username / Email : </h2>
                 <input id="Username" class="form-control" placeholder="Enter your username"><br>
                 <h2>Password : </h2>
                 <input id="Password" class="form-control" placeholder="Enter your password" type="password"><br>
-                <button type="submit" class="button login__submit">
-					<span class="button__text">Submit</span>
-					<i class="button__icon fas fa-chevron-right"></i>
-				</button>		
+                <button v-if="currentPage !== 'ListSoireePage'" @click="currentPage = 'ListSoireePage'">Se connecter</button>
+              <button v-if="currentPage !== 'Register'" @click="currentPage = 'Register'">Créer un compte</button>
             </form>
         </div>
+      <Register v-if="currentPage === 'Register'" />
+      <list-soiree-page v-if="currentPage === 'ListSoireePage'" />
     </div>
 </template>
 
 
 <script>
+import ListSoireePage from "@/pages/ListSoireePage";
+import Register from "@/pages/Register.vue";
+
 export default {
-    name: "LoginPage",
-    
+  name: "LoginPage",
+  components: {
+    ListSoireePage,
+    Register,
+  },
+  data() {
+    return {
+      currentPage: 'LoginPage',
+    }
+  }
+
 }
 </script>
 
