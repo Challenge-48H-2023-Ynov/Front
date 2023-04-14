@@ -70,8 +70,8 @@ export default {
     window.addEventListener('hashchange', () => {
       this.currentPath = window.location.hash
     })
-    const token = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJVc2VyIjoiRGVyY3Jha2VyIiwiRW1haWwiOiJhbnRvaW5lLmNhcGl0YWluQGdtYWlsLmNvbSIsImp0aSI6ImVjY2MzNzczLWJhYmMtNGNmMy04MGY0LTZmMmYxZDRjMWQ0NyIsIlJvbGVzIjoiQWRtaW4iLCJuYmYiOjE2ODE0NjIxNjIsImV4cCI6MTY4MTU0ODU2MiwiaWF0IjoxNjgxNDYyMTYyfQ.jLJ4yfkKNQ8bxIHrfzeDb_IL6WY1gGJplXxQ-BHfQls';
-    fetch('https://api-challenge-48h.game-trip.fr/Party', {
+    const token = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJVc2VyIjoiRGVyY3Jha2VyIiwiRW1haWwiOiJhbnRvaW5lLmNhcGl0YWluQGdtYWlsLmNvbSIsImp0aSI6IjNlYWM4OGE2LWVhMzAtNGY2YS05YjlhLTczZDUyYzNjMDAwZCIsIlJvbGVzIjoiQWRtaW4iLCJuYmYiOjE2ODE1MDQyODMsImV4cCI6MTcxMzA0MDI4MywiaWF0IjoxNjgxNTA0MjgzfQ.rbun0OZnjHnPFrr5WVg5YmAYHdjxO3VUtXeW_VYPa30';
+    fetch('http://localhost:55555/Party', {
         method: 'GET',
         headers: {
           'Authorization': `Bearer ${token}`

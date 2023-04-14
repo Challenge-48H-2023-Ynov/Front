@@ -64,9 +64,9 @@ export default {
   },
   mounted() {
     console.log(this.eventId);
-    const token = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJVc2VyIjoiRGVyY3Jha2VyIiwiRW1haWwiOiJhbnRvaW5lLmNhcGl0YWluQGdtYWlsLmNvbSIsImp0aSI6ImVjY2MzNzczLWJhYmMtNGNmMy04MGY0LTZmMmYxZDRjMWQ0NyIsIlJvbGVzIjoiQWRtaW4iLCJuYmYiOjE2ODE0NjIxNjIsImV4cCI6MTY4MTU0ODU2MiwiaWF0IjoxNjgxNDYyMTYyfQ.jLJ4yfkKNQ8bxIHrfzeDb_IL6WY1gGJplXxQ-BHfQls';
+    const token = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJVc2VyIjoiRGVyY3Jha2VyIiwiRW1haWwiOiJhbnRvaW5lLmNhcGl0YWluQGdtYWlsLmNvbSIsImp0aSI6IjNlYWM4OGE2LWVhMzAtNGY2YS05YjlhLTczZDUyYzNjMDAwZCIsIlJvbGVzIjoiQWRtaW4iLCJuYmYiOjE2ODE1MDQyODMsImV4cCI6MTcxMzA0MDI4MywiaWF0IjoxNjgxNTA0MjgzfQ.rbun0OZnjHnPFrr5WVg5YmAYHdjxO3VUtXeW_VYPa30';
 
-    fetch('https://api-challenge-48h.game-trip.fr/Party/'+ this.eventId, {
+    fetch('http://localhost:55555/Party/'+ this.eventId, {
       headers: {
         'Authorization': `Bearer ${token}`
       }

@@ -77,7 +77,7 @@ export default {
     },
     submitForm () {
       console.log(this.newSoiree.name)
-      const token = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJVc2VyIjoiRGVyY3Jha2VyIiwiRW1haWwiOiJhbnRvaW5lLmNhcGl0YWluQGdtYWlsLmNvbSIsImp0aSI6ImVjY2MzNzczLWJhYmMtNGNmMy04MGY0LTZmMmYxZDRjMWQ0NyIsIlJvbGVzIjoiQWRtaW4iLCJuYmYiOjE2ODE0NjIxNjIsImV4cCI6MTY4MTU0ODU2MiwiaWF0IjoxNjgxNDYyMTYyfQ.jLJ4yfkKNQ8bxIHrfzeDb_IL6WY1gGJplXxQ-BHfQls';
+      const token = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJVc2VyIjoiRGVyY3Jha2VyIiwiRW1haWwiOiJhbnRvaW5lLmNhcGl0YWluQGdtYWlsLmNvbSIsImp0aSI6IjNlYWM4OGE2LWVhMzAtNGY2YS05YjlhLTczZDUyYzNjMDAwZCIsIlJvbGVzIjoiQWRtaW4iLCJuYmYiOjE2ODE1MDQyODMsImV4cCI6MTcxMzA0MDI4MywiaWF0IjoxNjgxNTA0MjgzfQ.rbun0OZnjHnPFrr5WVg5YmAYHdjxO3VUtXeW_VYPa30';
       let formData = {
         idPartyMaker: "AC7053C5-5CDB-4A81-A38A-08DB3C7A50EE",
         name: "string",
@@ -86,7 +86,7 @@ export default {
         dateStart: "2023-04-14T10:16:01.550Z",
         dateEnd: "2023-04-14T10:16:01.550Z"
       };
-      fetch('https://api-challenge-48h.game-trip.fr/Party/new', {
+      fetch('http://localhost:55555/Party/new', {
         method: 'POST',
         headers: {
           'Authorization': `Bearer ${token}`,
