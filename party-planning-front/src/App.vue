@@ -5,11 +5,13 @@
 </template>
 <script>
 import Login from "@/pages/Login";
+// import Register from "./pages/Register.vue";
 
 export default {
   name: 'App',
   components: {
-    Login
+    Login,
+    // Register
   },
     data() {
     return {

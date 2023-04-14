@@ -43,31 +43,25 @@ export default {
 	box-sizing: border-box;
 	margin: 0;
 	padding: 0;	
-	/* font-family: Raleway, sans-serif; */
 }
 
 body {
 	display: flex;
 	justify-content: center;
-	align-items: center;
-	background: linear-gradient(90deg, #C7C5F4, #776BCC);		
+	background-color: black;		
 }
 #form {		
-	background: linear-gradient(90deg, #5D54A4, #7C78B8);		
 	position: relative;	
 	height: 600px;
 	width: 360px;	
-	box-shadow: 0px 0px 24px #5C5696;
 }
 form {
-	background: linear-gradient(90deg, white, #C7C5F4, #776BCC);	
 	height: 600px;	
 	width: 360px;
 	padding: 30px;
 	padding-top: 156px;
 }
 .form-control{
-	/* height: 60px; */
 	border: none;
 	border-bottom: 2px solid #D1D1D4;
 	background: none;
@@ -82,7 +76,6 @@ form {
 .form-control:focus,
 .form-control:hover {
 	outline: none;
-	border-bottom-color: #6A679E;
 }
 
 #form {
@@ -91,11 +84,10 @@ form {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
+  color: whitesmoke;
 }
 h1{
-	height: 100px;
+	height: 50px;
 	font-weight: bold;
 	text-underline-position: under;
 }
@@ -124,8 +116,8 @@ button{
 	display: flex;
 	align-items: center;
 	width: 100%;
-	color: #4C489D;
-	box-shadow: 0px 2px 2px #5C5696;
+	color: black;
+	box-shadow: 0px 2px 2px black;
 	cursor: pointer;
 	transition: .2s;
 	
@@ -138,5 +130,4 @@ button{
 .button__text{
 	text-align: center;
 }
-
 </style>
