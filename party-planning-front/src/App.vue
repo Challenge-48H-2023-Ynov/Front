@@ -1,17 +1,17 @@
 <template>
   <div id="app">
-    <button @click="currentPage = 'HomePage'">Accueil</button>
-    <home-page v-if="currentPage === 'HomePage'" />
+    <button @click="currentPage = 'EventPage'">Accueil</button>
+    <event-page v-if="currentPage === 'EventPage'" />
   </div>
 </template>
 
 <script>
-import HomePage from "@/pages/HomePage";
 
+import EventPage from "@/pages/EventPage.vue";
 export default {
   name: 'App',
   components: {
-    HomePage
+    EventPage,
   },
   data() {
     return {
