@@ -50,30 +50,25 @@ body {
 	display: flex;
 	justify-content: center;
 	align-items: center;
-	background: linear-gradient(90deg, #C7C5F4, #776BCC);		
 }
 #form {		
-	background: linear-gradient(90deg, #5D54A4, #7C78B8);		
-	position: relative;	
+	background: #101010;
+	position: relative;
 	height: 600px;
 	width: 360px;	
-	box-shadow: 0px 0px 24px #5C5696;
 }
 form {
-	background: linear-gradient(90deg, white, #C7C5F4, #776BCC);	
-	height: 600px;	
+	height: 600px;
 	width: 360px;
-	padding: 30px;
-	padding-top: 156px;
+  padding: 156px 30px 30px;
 }
 .form-control{
 	/* height: 60px; */
 	border: none;
 	border-bottom: 2px solid #D1D1D4;
 	background: none;
-	padding: 10px;
-	padding-left: 24px;
-	font-weight: 700;
+  padding: 10px 10px 10px 24px;
+  font-weight: 700;
 	width: 75%;
 	transition: .2s;
 }
@@ -82,7 +77,6 @@ form {
 .form-control:focus,
 .form-control:hover {
 	outline: none;
-	border-bottom-color: #6A679E;
 }
 
 #form {
@@ -91,7 +85,7 @@ form {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
-  color: #2c3e50;
+  color: white;
   margin-top: 60px;
 }
 h1{
@@ -110,7 +104,6 @@ input{
 	text-underline-position: under;
 }
 button{
-	width: 250px;
 	height: 50px;
 	font-weight: bold;
 	background: #fff;
@@ -120,12 +113,10 @@ button{
 	border-radius: 26px;
 	border: 1px solid #D4D3E8;
 	text-transform: uppercase;
-	font-weight: 700;
 	display: flex;
 	align-items: center;
 	width: 100%;
-	color: #4C489D;
-	box-shadow: 0px 2px 2px #5C5696;
+	color: #101010;
 	cursor: pointer;
 	transition: .2s;
 	
@@ -133,7 +124,7 @@ button{
 .button__icon {
 	font-size: 24px;
 	margin-left: auto;
-	color: #7875B5;
+	color: #101010;
 }
 .button__text{
 	text-align: center;

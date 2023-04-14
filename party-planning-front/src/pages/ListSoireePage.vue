@@ -9,7 +9,7 @@
                 v-for="(soiree, index) in listSoiree"
                 :key="index"
             >
-              <button @click="currentPage = 'EventPage'">
+              <button @click="goToSoiree(soiree.id)">
                 {{soiree.name}} - {{ soiree.date}} - {{ soiree.adresse}}
               </button>
             </li>
@@ -48,10 +48,8 @@ export default {
     return {
       currentPath: window.location.hash,
       currentPage: 'ListSoireePage',
-      listSoiree: [
-        { id: 1, name: 'BQQ', date: '05/05/2023', adresse: '5 rue du Test' },
-        { id: 2, name: 'Bar', date: '06/06/2023', adresse: '6 rue du Test' }
-      ],
+      currentSoireeId: Number,
+      listSoiree: [],
       createSoireeButton: false,
     }
   },
@@ -64,12 +62,27 @@ export default {
     window.addEventListener('hashchange', () => {
       this.currentPath = window.location.hash
     })
+    const token = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJVc2VyIjoiRGVyY3Jha2VyIiwiRW1haWwiOiJhbnRvaW5lLmNhcGl0YWluQGdtYWlsLmNvbSIsImp0aSI6ImVjY2MzNzczLWJhYmMtNGNmMy04MGY0LTZmMmYxZDRjMWQ0NyIsIlJvbGVzIjoiQWRtaW4iLCJuYmYiOjE2ODE0NjIxNjIsImV4cCI6MTY4MTU0ODU2MiwiaWF0IjoxNjgxNDYyMTYyfQ.jLJ4yfkKNQ8bxIHrfzeDb_IL6WY1gGJplXxQ-BHfQls';
+    fetch('https://api-challenge-48h.game-trip.fr/Party', {
+        method: 'GET',
+        headers: {
+          'Authorization': `Bearer ${token}`
+        }
+      })
+      .then(response => {
+        return response.json();
+      })
+      .then(data => {
+        this.listSoiree = data;
+      })
+      .catch(error => {
+        console.log(error);
+      });
   },
   methods: {
     goToSoiree (soireeId) {
       this.currentPage = 'EventPage'
-      console.log(soireeId)
-      //alert('id de la soiree :' + soireeId)
+      this.currentSoireeId = soireeId
     },
   }
 
