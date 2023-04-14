@@ -60,6 +60,7 @@
     </div>
     <profil-page v-if="currentPage === 'ProfilPage'"></profil-page>
   </div>
+  </div>
 </template>
 
 <script>
