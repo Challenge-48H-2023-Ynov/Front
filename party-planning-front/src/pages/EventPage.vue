@@ -11,15 +11,15 @@
     </div>
     <div class="info">
       <div class="date">
-        <h3>La date de l'événement : <span class="highlight">{{event.DateDateTime}}</span></h3>
+        <h3>La date de l'événement : <span class="highlight">{{event.dateStart}}</span></h3>
       </div>
       <div class="adress">
-        <h3>L'adresse de l'événement : <span class="highlight">{{event.Adress}}</span></h3>
+        <h3>L'adresse de l'événement : <span class="highlight">{{event.adress}}</span></h3>
       </div>
     </div>
     <div class="description">
       <h3>Description de l'événement : </h3>
-      <p>{{event.Description}}</p>
+      <p>{{event.description}}</p>
     </div>
     <div class="checkbox" v-if="showCheckbox">
       <input type="checkbox" v-model="isChecked" :disabled="!isEditModeEnabled">
@@ -27,37 +27,6 @@
     </div>
     <div class="button">
       <button v-if="!isEditModeEnabled" @click="enableEditMode">Participer</button>
-    <div v-if="currentPage === 'EventPage'">
-      <div class="profile-picture-container">
-        <img class="profile-picture" alt="Profile Picture" src="/path/to/profile-picture.jpg"/>
-      </div>
-      <button @click="currentPage='ProfilPage'">Voir le profil</button>
-      <div class="title">
-        <h1>{{event.Title}}</h1>
-      </div>
-      <div class="user">
-        <h3>Evénement préparer par : <span class="highlight">{{event.Name}}</span></h3>
-      </div>
-      <div class="info">
-        <div class="date">
-          <h3>La date de l'événement : <span class="highlight">{{event.DateDateTime}}</span></h3>
-        </div>
-        <div class="adress">
-          <h3>L'adresse de l'événement : <span class="highlight">{{event.Adress}}</span></h3>
-        </div>
-      </div>
-      <div class="description">
-        <h3>Description de l'événement : </h3>
-        <p>{{event.Description}}</p>
-      </div>
-      <div class="checkbox" v-if="showCheckbox">
-        <input type="checkbox" v-model="isChecked" :disabled="!isEditModeEnabled">
-        <label>{{ aport.Type }} - {{ aport.Nom }} - {{ aport.Quantité }}</label>
-      </div>
-      <div class="button">
-        <button v-if="!isEditModeEnabled" @click="enableEditMode">Participer</button>
-      </div>
-    </div>
     <profil-page v-if="currentPage === 'ProfilPage'"></profil-page>
   </div>
   </div>
@@ -123,37 +92,84 @@ export default {
 
 
 <style scoped>
+body {
+  background-color: black;
+}
+
+/* Texte blanc */
+body, input {
+  color: white;
+}
+
+/* Style pour les titres */
+h1, h2 {
+  color: white;
+  text-decoration: underline;
+}
 .body{
   background-color: black;
 }
-.profile-picture-container {
-  width: 80px;
-  height: 80px;
-  margin-bottom: 1rem;
-  overflow: hidden;
-  border-radius: 50%;
-  border: 3px solid white;
-}
+
 .profile-picture {
   width: 100%;
   height: auto;
   object-fit: cover;
 }
-.info{
+input {
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  box-sizing: border-box;
+  border: none;
+  border-bottom: 2px solid white;
+  background-color: black;
+  color: white;
+}
+
+/* Effet de survol pour les champs de saisie */
+input:hover {
+  border-bottom: 2px solid gray;
+}
+input[type="checkbox"] {
+  position: relative;
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+  margin: 0 10px 0 0;
+  vertical-align: middle;
+  cursor: pointer;
+}
+
+/* Style pour l'apparence de la case à cocher */
+input[type="checkbox"]::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: transparent;
+  border: 2px solid white;
+}
+
+/* Style pour la case à cocher cochée */
+input[type="checkbox"]:checked::before {
+  background-color: white;
+}
+
+/* Style pour le texte associé à la case à cocher */
+label {
+  color: white;
+  font-size: 16px;
+  vertical-align: middle;
+  cursor: pointer;
+}
+.info {
   display: flex;
   justify-content: space-around;
-  color:white;
 }
-.user{
-  color: white;
-}
+
 .highlight {
-  color: dodgerblue;
-}
-.description{
-  color: white;
-}
-.checkbox{
-  color: antiquewhite;
+  color: #5c91a9;
 }
 </style>
